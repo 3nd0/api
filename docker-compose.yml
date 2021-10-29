@@ -1,0 +1,7 @@
+version: "3"
+services:
+  app: # service name
+    build: . # Specify the directory where the Dockerfile used for build is located
+    tty: true
+    volumes:
+      - .:/go/src/api
