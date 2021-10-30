@@ -8,3 +8,10 @@ WORKDIR /go/src/api
 
 # Migrate host-side files to container working directory
 ADD . /go/src/api
+
+# Modules使用(mod init)と不要なpackage削除(tidy)
+RUN go mod init main \
+  && go mod tidy \
+  && go build
+
+CMD ["go", "run", "main.go"]
