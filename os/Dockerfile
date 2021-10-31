@@ -1,9 +1,10 @@
 FROM amazonlinux:latest
 
+WORKDIR /usr/src
+
+# go Environment variable definition
 ENV GOPATH /go
 ENV PATH /usr/local/go/bin:/go/bin:$PATH
-
-WORKDIR /usr/src
 
 # go install
 RUN yum update -y \
@@ -14,3 +15,6 @@ RUN yum update -y \
 
 # git install for go get command
 RUN yum install -y git
+
+# init
+CMD ["/sbin/init"]
